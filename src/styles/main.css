@@ -1,0 +1,104 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 1px;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: color 150ms var(--timing-function),
+    background-color 150ms var(--timing-function);
+
+  background-image: url('../images/bg-pattern.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.search-form {
+  text-align: center;
+}
+
+input {
+  margin-top: 20px;
+
+  width: 380px;
+  height: 40px;
+  font-size: 17px;
+  outline: inherit;
+}
+.search-form input:focus,
+.search-form input:hover {
+  border: 2px solid cornflowerblue;
+  border-radius: 4px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo-card {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.photo-card > img {
+  width: 380px;
+  height: 235px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-item:hover {
+  color: cornflowerblue;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.load-more-btn {
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+
+  font-family: inherit;
+  font-size: 18px;
+
+  background-color: white;
+
+  cursor: pointer;
+}
+
+.load-more-btn:hover,
+.load-more-btn:focus {
+  outline: inherit;
+  color: cornflowerblue;
+  border-color: cornflowerblue;
+}
