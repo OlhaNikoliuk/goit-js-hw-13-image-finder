@@ -21,9 +21,10 @@ const newApi = new API()
 
 function serchImages(e) {
   e.preventDefault()
-  newApi.query = e.currentTarget.elements.query.value
+  refs.galleryContainer.innerHTML = ''
+  newApi.query = e.currentTarget.elements.query.value.trim()
 
-  if (refs.input.value === ' ') {
+  if (refs.input.value.trim() === '') {
     return errorMsg()
   }
 
@@ -39,16 +40,19 @@ function serchImages(e) {
 }
 
 function onloadMore() {
-  newApi.fetchImages().then(addGalleryMarkup)
+  newApi.fetchImages().then((image) => {
+    addGalleryMarkup(image, true)
+  })
 }
 
-function addGalleryMarkup(image) {
+function addGalleryMarkup(image, toBottom = false) {
   refs.galleryContainer.insertAdjacentHTML('beforeend', imgGallery(image))
 
-  window.scrollTo({
-    top: refs.galleryContainer.scrollHeight,
-    behavior: 'smooth',
-  })
+  toBottom &&
+    window.scrollTo({
+      top: refs.galleryContainer.scrollHeight,
+      behavior: 'smooth',
+    })
 }
 
 function errorMsg() {
